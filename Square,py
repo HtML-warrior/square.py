@@ -1,0 +1,30 @@
+conversion_type = input("Enter your choice (F/C): ").upper()
+
+# reminder this is to let the computer decide to not cause interruptions in the code
+while conversion_type not in ['F', 'C']:
+    print("Invalid choice. Please enter F or C.")
+    conversion_type = input("Enter your choice (F/C): ").upper()
+
+# for temperature
+temperature_str = input("Enter the temperature to convert: ")
+
+# they have to put a valid temperature for the code to compile correctly
+while not temperature_str.replace(".", "", 1).isdigit():
+    print("Invalid temperature. Please enter a valid number.")
+    temperature_str = input("Enter the temperature to convert: ")
+
+temperature = float(temperature_str)
+
+# reminder 2 this small if else statement is used to determine which they chose and what the computer is converting
+if conversion_type == 'F':
+    converted_temperature = (9/5) * temperature + 32
+    unit_from = "Celsius"
+    unit_to = "Fahrenheit"
+else:
+    converted_temperature = 5/9 * (temperature - 32)
+    unit_from = "Fahrenheit"
+    unit_to = "Celsius"
+
+# result
+result_message = f"{temperature} {unit_from} is equal to {converted_temperature:.2f} {unit_to}."
+print(result_message)
